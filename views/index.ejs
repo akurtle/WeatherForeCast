@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="styles/main.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lato&family=Roboto:ital,wght@1,300&family=Sometype+Mono&family=Zeyada&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container">
+        <div class ="flexContainer">
+            <% if(locals.location){ %>
+            <h2 class ="location">Location:<%=location%></h2>
+            <h1 class ="temperature">Temp:<%=temperature%>°C</h1>
+            <div class ="max">Max:<%=maximum%>°C</div>
+            <div class ="min">Min:<%=minimum%>°C</div>
+            <div class ="humidity">Humidity:<%=humid%></div>
+            <% }else{%>
+                <div>Please enter the location</div>
+            <% } %>
+        </div>
+        <form action="/search" method="post" class ="search" >
+            <div class="searchDiv">
+
+                <%if(locals.location){%>
+                        <div>Current Location: <%=location%></div>
+                    <% }else{%>
+                        <div>Please enter a city</div>
+                    <% } %>
+                <div>
+                    <input type="text" name="location" placeholder="Please enter a city name">
+                    <input type="submit" value="Go" />
+                </div>
+            </div> 
+            
+            
+        </form>
+        <div class ="suntimes">
+            <% if(locals.location){ %>
+                	<h1 class="sunrise">
+                        <img src="resources/sunrise.png" class="sunpic">
+                        <%=sunRise%>
+                    </h1>
+                    <h1 class="sunset">
+                        <img src="resources/sunset.png" class="sunpic">
+                        <%=sunSet%>
+                    </h1>
+                <% }else{%>
+                    <div>Please enter the location</div>
+                <% } %>
+        </div>
+
+        
+
+        <div class ="UV">
+            <%if(locals.location){%>
+                    <%if(UV<2){%>
+                        <div class="sunscreen">
+                            <div id="uvLevel" style="color:greenyellow">UV Index: <%=UV%> </div>
+                            <div>Its a good day!</div>
+                        </div>
+                    <%}else if(2<UV<5){%>
+                        <div class="sunscreen">
+                            <div id="uvLevel" style="color:yellow"> UV Index: <%=UV%> </div>
+                            <div>The UV Index is still good!</div>
+                        </div>
+                    <%}else if(5<UV<7){%>
+                        <div class="sunscreen">
+                            <div id="uvLevel" style="color:orange">UV Index:  <%=UV%> </div>
+                            <div>Dont forget to apply sunscreen!</div>
+                        </div>
+                  
+                    <%}else if(7<UV){%>
+                        <div class="sunscreen">
+                            <div id="uvLevel" style="color:red">UV Index:  <%=UV%> </div>
+                            <div>Dont forget to apply sunscreen!</div>
+                        </div>
+                    <% } %>
+                <%}else{%>
+                    <div>Please enter the location</div>
+                <% } %>
+        </div>
+
+        <div class ="wind">
+            <% if(locals.location){ %>
+                <div  class="wind_speed_deg">
+                    <div class="wind_speed" >
+                        Wind Speed:<%=Math.floor(wind.speed*(3600/1000))%> km/h
+                    </div class="wind_deg">
+                    <div>Wind Deg:<%=wind.deg%>°</div>
+                </div>
+                <h1 class="visibility">
+                    
+                </h1>
+            <% }else{%>
+                <div>Please enter the location</div>
+            <% } %>
+
+        </div>
+        <div class ="week">
+            <%if(locals.location){ %>
+            <%for(let i=0;i<7;i++){%>
+                <div class="days">
+                    
+                    <div><%=week_daysStr[i] %></div>
+                    <div>Max Temp:<%=week_max[i]%></div>
+                    <div>Min Temp:<%=week_min[i]%></div>
+                    <div>Rain:<%=week_rain[i]%> mm</div>
+                    <div><%=week_daysInt[i]+" "%> <%=week_daysMonth[i]%></div>
+                    
+                </div>
+                <%}%>
+            <% }else{%>
+                <div>Please enter the location</div>
+            <% } %>
+        </div>
+
+    </div>
+</body>
+</html>
