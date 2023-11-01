@@ -19,7 +19,7 @@
             <div class ="min">Min:<%=minimum%>°C</div>
             <div class ="humidity">Humidity:<%=humid%></div>
             <% }else{%>
-                <div>Please enter the location</div>
+                <div>Displays todays weather stats!</div>
             <% } %>
         </div>
         <form action="/search" method="post" class ="search" >
@@ -80,7 +80,7 @@
                         </div>
                     <% } %>
                 <%}else{%>
-                    <div>Please enter the location</div>
+                    <div>Displays UV levels here!</div>
                 <% } %>
         </div>
 
@@ -96,7 +96,7 @@
                     
                 </h1>
             <% }else{%>
-                <div>Please enter the location</div>
+                <div>Displays the wind speed and degree here!</div>
             <% } %>
 
         </div>
@@ -106,15 +106,16 @@
                 <div class="days">
                     
                     <div><%=week_daysStr[i] %></div>
+                    <div><%=week_daysInt[i]+" "%> <%=week_daysMonth[i]%></div>
                     <div>Max Temp:<%=week_max[i]%></div>
                     <div>Min Temp:<%=week_min[i]%></div>
                     <div>Rain:<%=week_rain[i]%> mm</div>
-                    <div><%=week_daysInt[i]+" "%> <%=week_daysMonth[i]%></div>
+                    
                     
                 </div>
                 <%}%>
             <% }else{%>
-                <div>Please enter the location</div>
+                <div>Displays weekly stats here!</div>
             <% } %>
         </div>
 

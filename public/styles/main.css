@@ -1,11 +1,14 @@
 body{
     background-color: black;
+    background: linear-gradient(rgb(17, 216, 252),aquamarine);
     margin:0;
     text-align: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .container{
-    background-color: black;
+    
     border-radius: 100px;
     display:grid;
     width: 100vw;
@@ -17,30 +20,26 @@ body{
 
 
 @media screen and (max-width: 900px) {
-   
     body{
-        align-items: center;
-        text-align: center;
+            
+            overflow-x: hidden;
+            max-width: 100vw;
     }
-    
     .container{
         display: flex;
         flex-direction: column;
-        background-color: black;
         gap:10%;
+        align-items: center;
     }
-
     .search{
         order:-1;
     }
-
-
 }
 
 
 
 .flexContainer{
-    background-color: #8fe0ff;
+    
     border-radius: 100px;
     gap:100px;
     display:flex;
@@ -60,10 +59,7 @@ body{
     font-size: 45px;
 }
 
-.suntimes:hover{
-    color:antiquewhite;
-    transition:ease-in-out .5s;
-}
+
 
 
 .temperature{
@@ -73,7 +69,7 @@ body{
 
 .search{
     display: flex;
-    background-color: bisque;
+    
     border-radius: 100px;
     grid-column: 2;
     grid-row:1;
@@ -103,7 +99,7 @@ form > button{
     justify-content: center;
     gap:20%;
     align-items: center;
-    background-color: #54416d;
+    
     border-radius: 100px;
     grid-column: 2;
     grid-row:2;
@@ -125,7 +121,7 @@ form > button{
 
 
 .UV{
-    background-color: rgba(116, 153, 231, 0.486);
+    
     border-radius: 100px;
     display:flex;
     justify-content: center;
@@ -143,7 +139,7 @@ form > button{
 
 
 .wind{
-    background-color: aquamarine;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,7 +167,7 @@ form > button{
 }
 
 .week{
-    background-color: #75b4e3;
+    
     display:flex;
     flex-direction: row;
     justify-content: center;

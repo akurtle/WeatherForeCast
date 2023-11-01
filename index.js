@@ -77,13 +77,8 @@ app.get("/",async(req,res)=>{
         weeks = week.data.daily.time;
 
         currUV=week.data.daily.uv_index_max[currUVDay];
-        
-       
-        
 
         week_max_temp=week.data.daily.apparent_temperature_max;
-
-        
 
         week_min_temp=week.data.daily.apparent_temperature_min;
 
